@@ -27,9 +27,13 @@ class App extends Component {
     });
   }
 
-  updateTasksState(id) {
+  updateTasksState(index, value) {
     let newTasks = this.state.tasks.slice();
-    newTasks.splice(id, 1);
+    if (value === '') {
+      newTasks.splice(index, 1);
+    } else {
+      newTasks[index] = value;
+    }
     this.setState({
       tasks: newTasks,
     });
